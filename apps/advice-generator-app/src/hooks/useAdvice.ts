@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 interface IAdvice {
@@ -13,12 +12,12 @@ const useAdvice = () => {
   const getNewAdvice = () => {
     setLoading(true)
 
-    axios
-      .get('https://api.adviceslip.com/advice', {
-        params: { t: new Date() },
-      })
+    fetch('https://api.adviceslip.com/advice', {
+      cache: 'no-cache',
+    })
+      .then(res => res.json())
       .then(res => {
-        setAdvice(res?.data)
+        setAdvice(res)
         setLoading(false)
       })
       .catch(err => {
