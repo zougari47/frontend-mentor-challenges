@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,ts,tsx,js,jsx}', './index.html'],
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     colors: {
       transparent: 'transparent',
@@ -11,7 +12,17 @@ module.exports = {
       'dark-blue': 'hsl(218, 23%, 16%)',
       white: 'hsl(0,0%,100%)',
     },
-    extend: {},
+    extend: {
+      animation: {
+        rotate: 'rotate 0.8s linear',
+      },
+      keyframes: {
+        rotate: {
+          '0%': { transform: 'rotate(0)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
+    },
   },
   plugins: [],
 }

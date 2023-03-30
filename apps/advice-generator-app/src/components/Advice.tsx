@@ -55,7 +55,7 @@ export default function Advice() {
         <img
           src="/icon-dice.svg"
           alt="dice"
-          className="animate-[rotate_0.5s_ease-in-out]"
+          className="animate-rotate"
           key={advice?.slip.id}
         />
       </button>

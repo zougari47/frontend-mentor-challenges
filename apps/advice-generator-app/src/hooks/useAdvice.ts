@@ -16,14 +16,9 @@ const useAdvice = () => {
       cache: 'no-cache',
     })
       .then(res => res.json())
-      .then(res => {
-        setAdvice(res)
-        setLoading(false)
-      })
-      .catch(err => {
-        setError(err)
-        setLoading(false)
-      })
+      .then(res => setAdvice(res))
+      .catch(err => setError(err))
+      .finally(() => setLoading(false))
   }
 
   useEffect(() => getNewAdvice(), [])
