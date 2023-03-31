@@ -15,9 +15,9 @@ const useAdvice = () => {
     fetch('https://api.adviceslip.com/advice', {
       cache: 'no-cache',
     })
-      .then(res => res.json())
-      .then(res => setAdvice(res))
-      .catch(err => setError(err))
+      .then((res) => res.json())
+      .then((res) => setAdvice(res))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false))
   }
 

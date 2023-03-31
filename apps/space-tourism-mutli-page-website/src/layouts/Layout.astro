@@ -1,0 +1,62 @@
+---
+import Header from '../components/Header'
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.png' />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='author' content='Ahmed Zougari' />
+    <meta
+      name='keywords'
+      content='Space, Tourism, Multi, Page, Website, Astro, React, Tailwind, FrontendMentor, Challenge, Solution'
+    />
+    <meta
+      name='description'
+      content='Discover the wonders of space tourism with our multi-page website. Explore breathtaking destinations, learn about the latest space technology, and plan your next intergalactic adventure. Join the ranks of space pioneers today.'
+    />
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap'
+    />
+    <title>
+      Space Tourism - {title.charAt(0).toUpperCase() + title.slice(1)}
+    </title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap'
+      rel='stylesheet'
+    />
+  </head>
+  <body class='font-barlow'>
+    <Header page={title} client:idle />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: #f6f6f6;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+</style>
