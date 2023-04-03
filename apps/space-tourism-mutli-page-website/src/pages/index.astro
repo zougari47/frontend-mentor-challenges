@@ -1,13 +1,14 @@
 ---
+import Button from '../components/Button'
 import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title='home'>
   <div class='container'>
     <section class='text-white text-center'>
-      <h1>
+      <h1 class='mt-12'>
         <span
-          class='uppercase tracking-[2.7px] leading-[19.2px] text-light-blueish-gray'
+          class='uppercase tracking-[2.7px] mb-4 leading-[19.2px] text-light-blueish-gray'
           >So, you want to travel to</span
         >
         <br />
@@ -16,7 +17,7 @@ import Layout from '../layouts/Layout.astro'
         >
       </h1>
 
-      <p class='text-[15px] leading-[25px] text-light-blueish-gray'>
+      <p class='text-[15px] leading-[25px] text-light-blueish-gray mt-4 mb-20'>
         Let&rsquo;s face it; if you want to go to space, you might as well
         genuinely go to outer space and not hover kind of on the edge of it.
         Well sit back, and relax because we&rsquo;ll give you a truly out of
@@ -24,8 +25,13 @@ import Layout from '../layouts/Layout.astro'
       </p>
     </section>
 
-    <div>
-      <a href='#'> Explore</a>
+    <div class='flex justify-center'>
+      <Button />
+      <!-- <a
+        href='#'
+        class='relative mx-auto flex aspect-square w-[150px] items-center justify-center rounded-full bg-white font-bellefair uppercase text-xl text-dark before:absolute before:z-[1] before:h-full before:w-full before:rounded-full before:bg-[red] before:duration-300 before:content-[""] before:scale-[175%]'
+        >Explore</a
+      > -->
     </div>
   </div>
 </Layout>

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect, useRef } from 'react'
 
 const routes = ['home', 'destination', 'crew', 'technology']
 
@@ -8,7 +8,20 @@ interface IHome {
 
 export const Header: FC<IHome> = ({ page }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  console.log(page)
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (e.target instanceof Node && menuRef.current?.contains(e.target)) return
+    setIsMenuOpen(false)
+  }
 
   return (
     <header className='relative'>
@@ -26,6 +39,7 @@ export const Header: FC<IHome> = ({ page }) => {
         <span className='absolute left-[15%] top-11 z-10 hidden h-[1px] w-4/6 bg-white/25 mix-blend-normal lg:block'></span>
 
         <div
+          ref={menuRef}
           className={`fixed top-0 z-10 h-screen w-4/6 bg-white/[0.04] text-white backdrop-blur-2xl transition-[right] duration-700 md:absolute md:right-0 md:top-4 md:flex md:h-auto md:max-w-4xl md:items-center md:justify-center md:p-4 md:duration-0  ${
             isMenuOpen ? 'right-0' : '-right-[80%]'
           } `}
