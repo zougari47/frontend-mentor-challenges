@@ -11,7 +11,7 @@ module.exports = {
       dark: '#0B0D17',
       'light-blueish-gray': '#D0D6F9',
       white: '#FFFFFF',
-      transparent: 'transparent', // May delete it later
+      transparent: 'transparent', // NOTE May delete it later
     },
     extend: {},
     container: {

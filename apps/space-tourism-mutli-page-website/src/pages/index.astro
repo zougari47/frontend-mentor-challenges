@@ -4,20 +4,22 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title='home'>
-  <div class='container'>
-    <section class='text-white text-center'>
-      <h1 class='mt-12'>
+  <div class='container lg:flex'>
+    <section class='text-white text-center md:max-w-md md:mx-auto'>
+      <h1 class='mt-12 md:mt-[106px]'>
         <span
-          class='uppercase tracking-[2.7px] mb-4 leading-[19.2px] text-light-blueish-gray'
+          class='uppercase tracking-[2.7px] mb-4 md:mb-6 block leading-[19.2px] md:leading-[24px] md:tracking-[3.38px] text-light-blueish-gray'
           >So, you want to travel to</span
         >
-        <br />
-        <span class='leading-[100px] font-bellefair text-[80px] uppercase'
+        <span
+          class='leading-[100px] md:leading-[150px] md:text-[150px] font-bellefair text-[80px] uppercase'
           >Space</span
         >
       </h1>
 
-      <p class='text-[15px] leading-[25px] text-light-blueish-gray mt-4 mb-20'>
+      <p
+        class='text-[15px] md:text-base md:leading-[28px] leading-[25px] text-light-blueish-gray mt-4 md:mt-6 mb-20 md:mb-[156px]'
+      >
         Let&rsquo;s face it; if you want to go to space, you might as well
         genuinely go to outer space and not hover kind of on the edge of it.
         Well sit back, and relax because we&rsquo;ll give you a truly out of
@@ -25,13 +27,13 @@ import Layout from '../layouts/Layout.astro'
       </p>
     </section>
 
-    <div class='flex justify-center'>
-      <Button />
-      <!-- <a
+    <div class='flex justify-center items-center'>
+      <a
         href='#'
-        class='relative mx-auto flex aspect-square w-[150px] items-center justify-center rounded-full bg-white font-bellefair uppercase text-xl text-dark before:absolute before:z-[1] before:h-full before:w-full before:rounded-full before:bg-[red] before:duration-300 before:content-[""] before:scale-[175%]'
-        >Explore</a
-      > -->
+        class='font-bellefair md:text-[32px] md:leading-[36.67px] md:tracking-[2px] text-dark relative grid aspect-square w-[150px] md:w-[242px] place-items-center rounded-full bg-white text-xl uppercase before:absolute before:-z-[1] before:block before:aspect-square before:w-[100%] before:rounded-full before:bg-white/[0.1] before:transition-[width] before:duration-200 before:content-[""] hover:before:w-[164%]'
+      >
+        Explore
+      </a>
     </div>
   </div>
 </Layout>
@@ -43,7 +45,10 @@ import Layout from '../layouts/Layout.astro'
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    /* style to make hover btn effect work */
+    z-index: -1000;
+    position: relative;
   }
 
   /* tablet */
