@@ -24,7 +24,7 @@ export const Header: FC<IHome> = ({ page }) => {
   }
 
   return (
-    <header className='relative'>
+    <header className='relative 2xl:mx-auto 2xl:max-w-[1536px]'>
       <nav className='container flex items-center justify-between py-4'>
         <a href='/'>
           <img src='/assets/shared/logo.svg' alt='logo' />
@@ -40,7 +40,7 @@ export const Header: FC<IHome> = ({ page }) => {
 
         <div
           ref={menuRef}
-          className={`fixed top-0 z-10 h-screen w-4/6 bg-white/[0.04] text-white backdrop-blur-2xl transition-[right] duration-700 md:absolute md:right-0 md:top-4 md:flex md:h-auto md:max-w-4xl md:items-center md:justify-center md:p-4 md:duration-0  ${
+          className={`fixed top-0 z-10 h-screen w-4/6 bg-white/[0.04] text-white backdrop-blur-2xl transition-[right] duration-700 md:absolute md:right-0 md:top-4 md:flex md:h-auto md:max-w-4xl md:items-center md:justify-center md:p-4 md:duration-0 lg:p-6  ${
             isMenuOpen ? 'right-0' : '-right-[80%]'
           } `}
         >
@@ -56,7 +56,7 @@ export const Header: FC<IHome> = ({ page }) => {
             {routes.map((r, i) => (
               <li
                 data-index={`0${i}`}
-                className={`relative mb-8 w-fit uppercase leading-5 tracking-[2.7px] before:content-[attr(data-index)] after:absolute after:left-0 after:top-8 after:h-1 after:w-full after:duration-200 after:content-[""] hover:after:bg-white/50 md:mb-0 ${
+                className={`relative mb-8 w-fit uppercase leading-5 tracking-[2.7px] before:content-[attr(data-index)] after:absolute after:left-0 after:top-8 after:h-1 after:w-full after:duration-200 after:content-[""] hover:after:bg-white/50 md:mb-0 lg:after:top-10 ${
                   page === r && 'after:block after:bg-white'
                 }`}
                 key={r}
