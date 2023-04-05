@@ -1,7 +1,76 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Destination from '../components/Destination.astro'
+import destinaionsArray from '../data/destinations.json'
+let current = 'mars'
 ---
 
 <Layout title='destination'>
-  <h1>this is the destination page</h1>
+  <ul class='text-4xl flex justify-between px-24 mb-80'>
+    {
+      destinaionsArray.map((d) => (
+        <li>
+          <button class='destination__btn bg-dark rounded px-6 py-4 text-white'>
+            {d.name}
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+  <div class='flex gap-24 container'>
+    {destinaionsArray.map((d) => <Destination destination={d} />)}
+  </div>
 </Layout>
+
+<script>
+  const destinationSwitcher = (e: MouseEvent) => {
+    const targetDestination = (e?.target as HTMLButtonElement).textContent
+      ?.toLowerCase()
+      .trim()
+
+    document
+      .querySelectorAll<HTMLDivElement>('[data-destination]')
+      .forEach((d: HTMLDivElement) => {
+        const currentDestination = d.dataset.destination
+        d.style.display =
+          currentDestination === targetDestination ? 'block' : 'none'
+      })
+  }
+
+  document
+    .querySelectorAll<HTMLButtonElement>('.destination__btn')
+    .forEach((btn: HTMLButtonElement) =>
+      btn.addEventListener('click', destinationSwitcher)
+    )
+</script>
+
+<style>
+  body {
+    min-height: 100vh;
+    background-image: url('/assets/destination/background-destination-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+    /* style to make hover btn effect work */
+    z-index: -1000;
+    position: relative;
+  }
+
+  /* tablet */
+  @media only screen and (min-width: 640px) {
+    body {
+      background-image: url('/assets/destination/background-destination-tablet.jpg');
+    }
+  }
+
+  /* laptop */
+  @media only screen and (min-width: 1024px) {
+    body {
+      background-image: url('/assets/destination/background-destination-desktop.jpg');
+    }
+  }
+
+  .container {
+  }
+</style>
