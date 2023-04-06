@@ -38,9 +38,10 @@ export const Header: FC<IHome> = ({ page }) => {
         {/* line */}
         <span className='absolute left-[15%] top-11 z-10 hidden h-[1px] w-4/6 bg-white/25 mix-blend-normal lg:block'></span>
 
+        {/* Menu */}
         <div
           ref={menuRef}
-          className={`fixed top-0 z-10 h-screen w-4/6 bg-white/[0.04] text-white backdrop-blur-2xl transition-[right] duration-700 md:absolute md:right-0 md:top-4 md:flex md:h-auto md:max-w-4xl md:items-center md:justify-center md:p-4 md:duration-0 lg:p-6  ${
+          className={`fixed top-0 z-10 h-screen w-4/6 bg-white/[0.04] text-white backdrop-blur-2xl transition-[right] duration-500 md:absolute md:right-0 md:top-4 md:flex md:h-auto md:max-w-4xl md:items-center md:justify-center md:p-4 md:duration-0 lg:p-6 ${
             isMenuOpen ? 'right-0' : '-right-[80%]'
           } `}
         >

@@ -1,48 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Destination from '../components/Destination.astro'
-import destinaionsArray from '../data/destinations.json'
-let current = 'mars'
+import Destinations from '../components/destination'
 ---
 
 <Layout title='destination'>
-  <ul class='text-4xl flex justify-between px-24 mb-80'>
-    {
-      destinaionsArray.map((d) => (
-        <li>
-          <button class='destination__btn bg-dark rounded px-6 py-4 text-white'>
-            {d.name}
-          </button>
-        </li>
-      ))
-    }
-  </ul>
-  <div class='flex gap-24 container'>
-    {destinaionsArray.map((d) => <Destination destination={d} />)}
-  </div>
+  <Destinations client:idle />
 </Layout>
-
-<script>
-  const destinationSwitcher = (e: MouseEvent) => {
-    const targetDestination = (e?.target as HTMLButtonElement).textContent
-      ?.toLowerCase()
-      .trim()
-
-    document
-      .querySelectorAll<HTMLDivElement>('[data-destination]')
-      .forEach((d: HTMLDivElement) => {
-        const currentDestination = d.dataset.destination
-        d.style.display =
-          currentDestination === targetDestination ? 'block' : 'none'
-      })
-  }
-
-  document
-    .querySelectorAll<HTMLButtonElement>('.destination__btn')
-    .forEach((btn: HTMLButtonElement) =>
-      btn.addEventListener('click', destinationSwitcher)
-    )
-</script>
 
 <style>
   body {
