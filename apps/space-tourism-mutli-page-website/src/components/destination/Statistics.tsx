@@ -1,5 +1,9 @@
 import type { FC } from 'react'
-import type { IStatistics } from '../../types'
+
+interface IStatistics {
+  label: string
+  value: string
+}
 
 const Statistics: FC<IStatistics> = ({ label, value }) => {
   return (

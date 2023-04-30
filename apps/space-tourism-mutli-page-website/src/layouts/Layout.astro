@@ -1,7 +1,11 @@
 ---
 import Header from '../components/common/Header'
-
 const { title } = Astro.props
+
+// To use as CSS var
+const mobileBg = `url("/assets/${title}/background-${title}-mobile.jpg")`
+const tabletBg = `url("/assets/${title}/background-${title}-tablet.jpg")`
+const desktopBg = `url("/assets/${title}/background-${title}-desktop.jpg")`
 ---
 
 <!DOCTYPE html>
@@ -18,7 +22,7 @@ const { title } = Astro.props
     />
     <meta
       name='description'
-      content='Discover the wonders of space tourism with our multi-page website. Explore breathtaking destinations, learn about the latest space technology, and plan your next intergalactic adventure. Join the ranks of space pioneers today.'
+      content='Discover the wonders of space tourism with our multi-page website. Explore breathtaking var(--title)s, learn about the latest space technology, and plan your next intergalactic adventure. Join the ranks of space pioneers today.'
     />
     <link
       rel='stylesheet'
@@ -41,22 +45,31 @@ const { title } = Astro.props
     </main>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
+
+<style define:vars={{ mobileBg, tabletBg, desktopBg }}>
+  body {
+    min-height: 100vh;
+    background-image: var(--mobileBg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+    /* style to make hover btn effect work */
+    z-index: -1000;
+    position: relative;
   }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
+
+  /* tablet */
+  @media only screen and (min-width: 640px) {
+    body {
+      background-image: var(--tabletBg);
+    }
   }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+
+  /* laptop */
+  @media only screen and (min-width: 1024px) {
+    body {
+      background-image: var(--desktopBg);
+    }
   }
 </style>

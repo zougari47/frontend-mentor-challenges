@@ -1,8 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import destinations from '../../data/destinations.json'
-import Destination from './Destination'
+import Destination, { IDestination } from './Destination'
 import NavigationButtons from './NavigationButtons'
-import type { IDestination } from '../../types'
 
 const Wrapper = () => {
   const [currentDestination, setCurrentDestination] = useState('moon')
@@ -26,7 +25,6 @@ const Wrapper = () => {
           .toString()
           .padStart(2, '0')}
         key={filteredDestination?.name}
-        name={filteredDestination?.name as string}
       >
         <NavigationButtons
           destinations={destinations}

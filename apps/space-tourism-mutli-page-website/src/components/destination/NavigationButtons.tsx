@@ -1,5 +1,15 @@
 import type { FC } from 'react'
-import type { INavigationButtons } from '../../types'
+
+interface INavigationButtons {
+  destinations: {
+    name: string
+    description: string
+    avgDistance: string
+    travelTime: string
+  }[]
+  currentDestination: string
+  setCurrentDestination: (d: string) => void
+}
 
 const NavigationButtons: FC<INavigationButtons> = ({
   destinations,
