@@ -32,11 +32,11 @@ const CrewMember: React.FC<ICrew> = ({ name, images, role, bio, children }) => {
               loading='lazy'
             />
           </div>
-          <hr className='border-[#383B4B] lg:hidden' />
+          <hr className='border-[#383B4B]' />
         </div>
 
         {/* navigation button */}
-        <div className='p-4 md:order-2 lg:order-3 lg:-mt-[280px] lg:h-fit'>
+        <div className='p-4 md:order-2 lg:order-3 lg:-mt-[200px] lg:h-fit 2xl:-mt-[280px]'>
           {children}
         </div>
 
@@ -47,7 +47,7 @@ const CrewMember: React.FC<ICrew> = ({ name, images, role, bio, children }) => {
           <span className='font-bellefair mb-4 block text-[24px] uppercase leading-[27.5px] md:text-[40px] md:leading-[45.84px] lg:mb-[27px] lg:text-[56px] lg:leading-[64.18px]'>
             {name}
           </span>
-          <p className='text-light-blueish-gray text-[15px] leading-[25px] md:text-[16px] md:leading-[28px] lg:pr-40 lg:text-[18px] lg:leading-[32px]'>
+          <p className='text-light-blueish-gray text-[15px] leading-[25px] md:text-[16px] md:leading-[28px] lg:text-[18px] lg:leading-[32px] 2xl:pr-40'>
             {bio}
           </p>
         </div>

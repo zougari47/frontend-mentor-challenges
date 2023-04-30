@@ -9,7 +9,7 @@ const Wrapper = () => {
   )
 
   return (
-    <section className='container text-center lg:px-[111.5px] lg:text-left'>
+    <section className='container px-14 text-center lg:px-[111.5px] lg:text-left'>
       <Destination {...currentDestination} key={currentDestination.name}>
         <NavigationButtons
           {...{ destinationsArr, currentDestination, setCurrentDestination }}
