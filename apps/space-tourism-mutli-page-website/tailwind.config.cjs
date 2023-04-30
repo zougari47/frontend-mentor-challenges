@@ -13,7 +13,17 @@ module.exports = {
       white: '#FFFFFF',
       transparent: 'transparent', // NOTE May delete it later
     },
-    extend: {},
+    extend: {
+      animation: {
+        'fade-in': 'fade-in 1s forwards',
+      },
+      keyframes: {
+        'fade-in': {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+      },
+    },
     container: {
       center: true,
       padding: '2rem',

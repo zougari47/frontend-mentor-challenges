@@ -19,7 +19,7 @@ const Destination: FC<IDestination> = ({
   i,
 }) => {
   return (
-    <div className='pb-14 pt-[76px] lg:flex lg:items-center lg:justify-between lg:gap-24 xl:gap-0'>
+    <div className='animate-fade-in pb-14 pt-[76px] lg:flex lg:items-center lg:justify-between lg:gap-24 xl:gap-0'>
       <div>
         <p
           data-index={i}
