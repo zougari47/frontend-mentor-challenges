@@ -11,14 +11,13 @@ const NavigationButtons: React.FC<INavigationButtons> = ({
   currentMember,
   setCurrentMember,
 }) => {
-  console.log(currentMember.name === crewArr[0].name, currentMember)
   return (
     <ul className='flex items-center justify-center gap-4'>
       {crewArr.map((member) => (
         <li key={member.name}>
           {/* true mean current selected */}
           <button
-            className={`ful aspect-square w-[10px] rounded-full bg-white opacity-[0.17%]  ${
+            className={`ful aspect-square w-[10px] rounded-full bg-white ${
               currentMember.name == member.name ? 'opacity-100' : 'opacity-25'
             }`}
             onClick={() => setCurrentMember(member)}

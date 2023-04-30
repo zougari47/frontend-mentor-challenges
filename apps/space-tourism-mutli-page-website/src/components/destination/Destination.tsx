@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode } from 'react'
+import { FC, memo, ReactNode, useMemo } from 'react'
 import Statistics from './Statistics'
 
 export interface IDestination {
@@ -7,7 +7,6 @@ export interface IDestination {
   avgDistance: string
   travelTime: string
   children?: ReactNode
-  i?: string
 }
 
 const Destination: FC<IDestination> = ({
@@ -16,14 +15,13 @@ const Destination: FC<IDestination> = ({
   avgDistance,
   travelTime,
   children,
-  i,
 }) => {
+  const memoizedChildren = useMemo(() => children, [children])
   return (
     <div className='animate-fade-in pb-14 pt-[76px] lg:flex lg:items-center lg:justify-between lg:gap-24 xl:gap-0'>
       <div>
         <p
-          data-index={i}
-          className={`mb-8 mt-6 text-base uppercase leading-[19.2px] tracking-[2.7px] text-white before:pr-[18px] before:font-bold before:opacity-25 before:content-[attr(data-index)] md:mb-[60px] md:text-left md:text-[20px] md:leading-6 md:tracking-[3.38px] lg:mb-[97px] lg:whitespace-nowrap lg:text-[28px] lg:leading-[33.6px] lg:tracking-[4.72px]`}
+          className={`mb-8 mt-6 text-base uppercase leading-[19.2px] tracking-[2.7px] text-white before:pr-[18px] before:font-bold before:opacity-25 before:content-["01"] md:mb-[60px] md:text-left md:text-[20px] md:leading-6 md:tracking-[3.38px] lg:mb-[97px] lg:whitespace-nowrap lg:text-[28px] lg:leading-[33.6px] lg:tracking-[4.72px]`}
         >
           Pick your destination
         </p>
@@ -32,11 +30,12 @@ const Destination: FC<IDestination> = ({
           className='mx-auto block aspect-square w-[170px] object-cover md:w-[300px] lg:ml-[63.5px] lg:w-[445px]'
           src={`/assets/destination/image-${name}.webp`}
           alt={name}
+          loading='lazy'
         />
       </div>
 
       <div>
-        <div>{children}</div>
+        <div>{memoizedChildren}</div>
 
         <h1 className='font-bellefair mb-2 text-[56px] uppercase leading-[64.18px] text-white md:text-[80px] md:leading-[91.68px] lg:mb-[14px] lg:leading-[114.6px]'>
           {name}

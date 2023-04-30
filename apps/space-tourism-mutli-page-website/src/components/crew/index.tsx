@@ -12,7 +12,6 @@ const Wrapper = () => {
         bio={currentMember.bio}
         role={currentMember.role}
         images={currentMember.images}
-        i='00'
       >
         <NavigationButtons
           crewArr={crewArr}
