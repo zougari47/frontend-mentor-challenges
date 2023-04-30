@@ -1,33 +1,29 @@
-import type { FC } from 'react'
+import type { ICrew } from './Crew'
 
 interface INavigationButtons {
-  destinations: {
-    name: string
-    description: string
-    avgDistance: string
-    travelTime: string
-  }[]
-  currentDestination: string
-  setCurrentDestination: (d: string) => void
+  crewArr: ICrew[]
+  currentMember: ICrew
+  setCurrentMember: (member: ICrew) => void
 }
 
-const NavigationButtons: FC<INavigationButtons> = ({
-  destinations,
-  currentDestination,
-  setCurrentDestination,
+const NavigationButtons: React.FC<INavigationButtons> = ({
+  crewArr,
+  currentMember,
+  setCurrentMember,
 }) => {
+  console.log(currentMember.name === crewArr[0].name, currentMember)
   return (
-    <ul className='item-center text-light-blueish-gray mb-5 mt-[26px] flex justify-center gap-7 md:mb-6 md:mt-[53px] lg:justify-start'>
-      {destinations.map((d) => (
-        <li key={d.name}>
+    <ul className='flex items-center justify-center gap-4'>
+      {crewArr.map((member) => (
+        <li key={member.name}>
+          {/* true mean current selected */}
           <button
-            className={`relative mb-8 w-fit text-[14px] uppercase leading-[16.8px] tracking-[2.36px] after:absolute after:left-0 after:top-8 after:h-1 after:w-full after:duration-200 after:content-[""] hover:after:bg-white/50 md:mb-0 md:text-[16px] md:leading-[19.2px] md:tracking-[2.7px] lg:mb-[52px] lg:text-base lg:leading-[19.2px] lg:tracking-[2.7px] lg:after:top-10 ${
-              d.name === currentDestination &&
-              'text-white after:block after:bg-white'
+            className={`ful aspect-square w-[10px] rounded-full bg-white opacity-[0.17%]  ${
+              currentMember.name == member.name ? 'opacity-100' : 'opacity-25'
             }`}
-            onClick={() => setCurrentDestination(d.name)}
+            onClick={() => setCurrentMember(member)}
           >
-            {d.name}
+            <span className='sr-only'>{member.name}</span>
           </button>
         </li>
       ))}
