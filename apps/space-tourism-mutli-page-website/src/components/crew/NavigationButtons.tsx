@@ -17,7 +17,7 @@ const NavigationButtons: React.FC<INavigationButtons> = ({
         <li key={member.name}>
           {/* true mean current selected */}
           <button
-            className={`ful aspect-square w-[10px] rounded-full bg-white ${
+            className={`ful aspect-square w-[10px] rounded-full bg-white lg:w-[15px] ${
               currentMember.name == member.name ? 'opacity-100' : 'opacity-25'
             }`}
             onClick={() => setCurrentMember(member)}
