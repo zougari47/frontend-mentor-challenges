@@ -1,0 +1,75 @@
+---
+import Header from '../components/common/Header'
+const { title } = Astro.props
+
+// To use as CSS var
+const mobileBg = `url("/assets/${title}/background-${title}-mobile.jpg")`
+const tabletBg = `url("/assets/${title}/background-${title}-tablet.jpg")`
+const desktopBg = `url("/assets/${title}/background-${title}-desktop.jpg")`
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.png' />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='author' content='Ahmed Zougari' />
+    <meta
+      name='keywords'
+      content='Space, Tourism, Multi, Page, Website, Astro, React, Tailwind, FrontendMentor, Challenge, Solution'
+    />
+    <meta
+      name='description'
+      content='Discover the wonders of space tourism with our multi-page website. Explore breathtaking var(--title)s, learn about the latest space technology, and plan your next intergalactic adventure. Join the ranks of space pioneers today.'
+    />
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap'
+    />
+    <title>
+      Space Tourism - {title.charAt(0).toUpperCase() + title.slice(1)}
+    </title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap'
+      rel='stylesheet'
+    />
+  </head>
+  <body class='font-barlow'>
+    <Header page={title} client:idle />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style define:vars={{ mobileBg, tabletBg, desktopBg }}>
+  body {
+    min-height: 100vh;
+    background-image: var(--mobileBg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+    /* style to make hover btn effect work */
+    z-index: -1000;
+    position: relative;
+  }
+
+  /* tablet */
+  @media only screen and (min-width: 640px) {
+    body {
+      background-image: var(--tabletBg);
+    }
+  }
+
+  /* laptop */
+  @media only screen and (min-width: 1024px) {
+    body {
+      background-image: var(--desktopBg);
+    }
+  }
+</style>
