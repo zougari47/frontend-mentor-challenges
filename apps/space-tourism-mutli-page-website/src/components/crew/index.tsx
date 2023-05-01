@@ -7,17 +7,8 @@ const Wrapper = () => {
   const [currentMember, setCurrentMember] = useState(crewArr[0])
   return (
     <section className='container md:px-12 lg:px-24'>
-      <CrewMember
-        name={currentMember.name}
-        bio={currentMember.bio}
-        role={currentMember.role}
-        images={currentMember.images}
-      >
-        <NavigationButtons
-          crewArr={crewArr}
-          currentMember={currentMember}
-          setCurrentMember={setCurrentMember}
-        />
+      <CrewMember {...currentMember} key={currentMember.name}>
+        <NavigationButtons {...{ crewArr, currentMember, setCurrentMember }} />
       </CrewMember>
     </section>
   )

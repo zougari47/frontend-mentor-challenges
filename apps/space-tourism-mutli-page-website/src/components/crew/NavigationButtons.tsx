@@ -15,7 +15,6 @@ const NavigationButtons: React.FC<INavigationButtons> = ({
     <ul className='flex items-center justify-center gap-4'>
       {crewArr.map((member) => (
         <li key={member.name}>
-          {/* true mean current selected */}
           <button
             className={`ful aspect-square w-[10px] rounded-full bg-white lg:w-[15px] ${
               currentMember.name == member.name ? 'opacity-100' : 'opacity-25'
