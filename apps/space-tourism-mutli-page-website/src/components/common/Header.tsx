@@ -27,7 +27,12 @@ export const Header: FC<IHome> = ({ page }) => {
     <header className='relative 2xl:mx-auto 2xl:max-w-[1536px]'>
       <nav className='container flex items-center justify-between py-4'>
         <a href='/'>
-          <img src='/assets/shared/logo.svg' alt='logo' />
+          <img
+            src='/assets/shared/logo.svg'
+            alt='logo'
+            width={48}
+            height={48}
+          />
         </a>
 
         <button className='md:hidden' onClick={() => setIsMenuOpen(true)}>

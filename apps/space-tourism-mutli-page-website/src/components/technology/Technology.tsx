@@ -15,7 +15,7 @@ const Technology: React.FC<ITechnology> = ({
   children,
 }) => {
   return (
-    <div className='text-center lg:text-left'>
+    <div className='animate-fade-in text-center lg:text-left' key={name}>
       <div className='container lg:px-20'>
         <h1
           className={`mb-8 mt-6 text-base uppercase leading-[19.2px] tracking-[2.7px] text-white before:pr-[18px] before:font-bold before:opacity-25 before:content-["03"] md:mb-[60px] md:text-left md:text-[20px] md:leading-6 md:tracking-[3.38px] lg:mb-[97px] lg:whitespace-nowrap lg:text-[28px] lg:leading-[33.6px] lg:tracking-[4.72px]`}
@@ -47,6 +47,7 @@ const Technology: React.FC<ITechnology> = ({
               src={images.landscape}
               alt={name}
               className='block h-auto w-full'
+              loading='lazy'
             />
           </picture>
         </div>

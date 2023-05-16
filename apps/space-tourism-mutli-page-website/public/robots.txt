@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://space-tourism.ahmedzougari.com/sitemap-index.xml
